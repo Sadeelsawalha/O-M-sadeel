@@ -1,11 +1,7 @@
-// 1️⃣ دالة لمسح البيانات القديمة
 function clearStorage() {
     localStorage.removeItem("users");
     localStorage.removeItem("currentUser");
-    alert("تم مسح البيانات القديمة! أعد تحميل الصفحة.");
-}
-
-// 2️⃣ تهيئة المستخدمين الافتراضيين (مرة واحدة فقط)
+    // إعادة إنشاء المستخدمين الافتراضيين
 if (!localStorage.getItem("users")) {
     const defaultUsers = {
         "sadeel":   { pass: "123456", hours: 0, lastIn: "", lastOut: "", inLocation: "", outLocation: "", profileImage: "" },
@@ -30,6 +26,8 @@ if (!localStorage.getItem("users")) {
     };
 
     localStorage.setItem("users", JSON.stringify(defaultUsers));
+        alert("تم مسح البيانات القديمة وإعادة تهيئة المستخدمين!");
+
 }
 
 // 3️⃣ تسجيل الدخول
@@ -179,3 +177,4 @@ function logout() {
     localStorage.removeItem("currentUser");
     window.location.href = "index.html";
 }
+
